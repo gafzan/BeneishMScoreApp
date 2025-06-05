@@ -1,0 +1,7 @@
+pandas
+dateparser
+edgartools
+streamlit
+numpy
+tqdm
+pydantic
