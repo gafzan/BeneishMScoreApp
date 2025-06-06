@@ -369,7 +369,14 @@ def display_wiki():
     with st.expander("Wiki 📚"):
         st.subheader("Beneish M-Score")
         st.write(
-            "The Beneish M-Score is a numerical formula that aims to identify companies that are engaging in earnings manipulation.")
+            "The Beneish M-Score is a numerical formula that aims to identify companies that are engaging in earnings manipulation. "
+            "Developed by Professor Messod Beneish, it uses eight financial ratios to detect the likelihood of financial statement fraud."
+        )
+
+        st.markdown("**Key Features:**")
+        st.write("- Scores above -1.78 suggest potential earnings manipulation")
+        st.write("- Model is estimated using non-financial firms")
+        st.write("- Has a fairly large error rate so don't overinterpret the result")
 
         st.markdown("**M-Score Formula:**")
         st.latex(r'''
@@ -385,7 +392,22 @@ def display_wiki():
             &\quad - 0.327 \times LVGI
             \end{aligned}
         ''')
-        st.subheader("Additional sources")
+
+        st.markdown("**Variables Explained:**")
+        st.write("- **DSRI**: Days' Sales in Receivables Index")
+        st.write("- **GMI**: Gross Margin Index")
+        st.write("- **AQI**: Asset Quality Index")
+        st.write("- **SGI**: Sales Growth Index")
+        st.write("- **DEPI**: Depreciation Index")
+        st.write("- **SGAI**: Sales, General and Administrative Expenses Index")
+        st.write("- **LVGI**: Leverage Index")
+        st.write("- **TATA**: Total Accruals to Total Assets")
+
+        st.markdown("**Additional Resources**")
+        st.write("- [Original Paper by Messod Beneish (1999)](https://ru.scribd.com/doc/33484680/The-Detection-of-Earnings-Manipulation-Messod-D-Beneish)")
+        st.write("- [Follow-up Paper by Messod Beneish (2012)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1998387)")
+        st.write("- [Investopedia Explanation](https://www.investopedia.com/terms/b/beneishmodel.asp)")
+        st.write("- [Youtube video made by smart handsome Swedish man](https://youtu.be/mepuPwcd1UE?si=fBRZp0bBP50XW3ST)")
 
 
 def user_guide():
