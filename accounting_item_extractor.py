@@ -6,7 +6,7 @@ from typing import Dict, Literal, Union, List as TypingList
 from functools import reduce
 import operator
 
-from config.accounting_item_filter_config import AccountingItemFilterConfig
+from accounting_item_filter_config import AccountingItemFilterConfig
 
 import logging
 
