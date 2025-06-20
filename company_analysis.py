@@ -9,13 +9,13 @@ import pandas as pd
 
 from edgar import Company
 
-from config.synonyms import ANNUAL_SYNONYMS
-from config.synonyms import TTM_SYNONYMS
-from config.synonyms import QUARTERLY_SYNONYMS
+from synonyms import ANNUAL_SYNONYMS
+from synonyms import TTM_SYNONYMS
+from synonyms import QUARTERLY_SYNONYMS
 
 from xbrl_data_extraction import get_xbrl_statements, FinancialStatementExtractor
 from calculation_observation_frequency import ObservationFrequencyDataCalculator, add_duration_labels
-from config.financial_statement_config import AccountingItemKeys, FINANCIAL_STATEMENTS_CONFIG
+from financial_statement_config import AccountingItemKeys, FINANCIAL_STATEMENTS_CONFIG
 
 ANNUAL = 'annual'
 QUARTERLY = 'quarterly'
