@@ -1,7 +1,0 @@
-pandas
-dateparser
-edgartools==3.15.1  # Newer versions treats MultiFinancials differently
-streamlit
-numpy
-tqdm
-pydantic
