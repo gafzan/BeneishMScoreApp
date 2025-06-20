@@ -11,7 +11,7 @@ from edgar.xbrl import XBRLS
 from tools import get_col_names_with_yyyy_mm_dd
 
 from accounting_item_extractor import AccountingItemExtractor
-from config.financial_statement_config import FINANCIAL_STATEMENTS_CONFIG, items_with_multiple_statements
+from financial_statement_config import FINANCIAL_STATEMENTS_CONFIG, items_with_multiple_statements
 
 
 VALID_STATEMENT_LITERAL = Literal['income_statement', 'balance_sheet', 'cashflow_statement']
