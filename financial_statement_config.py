@@ -3,11 +3,11 @@
 from pydantic import BaseModel
 from typing import Union, List
 
-from config.accounting_item_filter_config import REVENUE_ITEMS_FILTER, COGS_ITEMS_FILTER, DEPRECIATION_AMORTIZATION_FILTER, \
+from accounting_item_filter_config import REVENUE_ITEMS_FILTER, COGS_ITEMS_FILTER, DEPRECIATION_AMORTIZATION_FILTER, \
     SALES_GENERAL_ADMIN_FILTER, ACCOUNTS_RECEIVABLE_FILTER, CURRENT_ASSETS_FILTER, CURRENT_LIABILITIES_FILTER, \
     TOTAL_ASSETS_FILTER, PROPERTY_PLANT_EQUIPMENT_FILTER, LONG_TERM_DEBT_FILTER, NET_INCOME_FILTER, \
     CASH_FROM_OPERATIONS_FILTER
-from config.accounting_item_filter_config import AccountingItemFilterConfig
+from accounting_item_filter_config import AccountingItemFilterConfig
 
 
 # --- Constants ---
