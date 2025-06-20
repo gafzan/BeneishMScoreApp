@@ -5,7 +5,7 @@ import numpy as np
 import streamlit as st
 
 from company_analysis import CompanyAnalysis
-from config.financial_statement_config import FINANCIAL_STATEMENTS_CONFIG, AccountingItemKeys
+from financial_statement_config import FINANCIAL_STATEMENTS_CONFIG, AccountingItemKeys
 
 from edgar import set_identity
 
