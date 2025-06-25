@@ -1,7 +1,7 @@
 """dashboard.py"""
 
 import streamlit as st
-from edgar import set_identity, Company
+from edgar import set_identity, Company, XBRL
 
 set_identity('gafzan@gmail.com')
 
@@ -12,7 +12,14 @@ def on_ticker_change():
 
     if ticker:
         company = Company(ticker)
-        st.write(company.display_name)
+        if company.latest_tenq:
+            filing = company.get_filings(form=['10-Q']).latest()
+            xbrl = XBRL.from_filing(filing)
+            df = xbrl.statements.income_statement(skip_concept_check=False).to_dataframe(standard=False)
+            st.write(company.display_name)
+            st.dataframe(df)
+        else:
+            st.warning('No 10-Q available')
 
 
 def main():
