@@ -6,9 +6,9 @@ from edgar import Company, set_identity
 from edgar.xbrl import XBRLS, XBRL
 from time import time
 
-from edgar.xbrl.stitching import stitch_statements as _stitch_statements
+from edgar.xbrl.stitching import StatementStitcher
 
-from typing import List, Any, Literal
+from typing import List, Any, Literal, Dict
 
 
 # This opts into pandas' future behavior, where downcasting will require explicit handling.
@@ -18,6 +18,44 @@ from typing import List, Any, Literal
 # numeric results.
 # df[col_name] = df.filter(like=col_name).bfill(axis=1, downcast=False).iloc[:, 0]
 pd.set_option('future.no_silent_downcasting', True)
+
+
+class _EmptyPlaceholder:
+    def __init__(self):
+        self.mapping_store = None
+
+
+def stitch_statements(
+        xbrl_list: List[Any],
+        statement_type: str = 'IncomeStatement',
+        max_periods: int = 3,
+) -> Dict[str, Any]:
+    """
+    Stitch together statements from multiple XBRL objects.
+
+    Args:
+        xbrl_list: List of XBRL objects, should be from the same company and ordered by date
+        statement_type: Type of statement to stitch ('IncomeStatement', 'BalanceSheet', etc.)
+        max_periods: Maximum number of periods to include (default: 3)
+
+    Returns:
+        Stitched statement data
+    """
+    print("Stitching statements...")
+    # Initialize the stitcher
+    stitcher = StatementStitcher(concept_mapper=_EmptyPlaceholder())
+
+    # Collect statements of the specified type from each XBRL object
+    statements = []
+
+    for xbrl in xbrl_list:
+        # Get statement data for the specified type
+        statement = xbrl.get_statement_by_type(statement_type)
+        if statement:
+            statements.append(statement)
+
+    # Stitch the statements
+    return stitcher.stitch_statements(statements=statements, period_type=None, max_periods=max_periods, standard=False)
 
 class EnhancedXBRL(XBRL):
 
@@ -200,8 +238,8 @@ class EnhancedXBRLS(XBRLS):
         :param statement_type: str
         :return: DataFrame
         """
-        statement_df = pd.DataFrame(_stitch_statements(xbrl_list=[xbrl], statement_type=statement_type, period_type=None,
-                                        max_periods=999, standard=False, use_optimal_periods=False)['statement_data'])
+        statement_df = pd.DataFrame(stitch_statements(xbrl_list=[xbrl], statement_type=statement_type,
+                                                      max_periods=999,)['statement_data'])
 
         # Remove the 'decimals' column (who cares?)
         statement_df.drop(['decimals'], axis=1, inplace=True)
