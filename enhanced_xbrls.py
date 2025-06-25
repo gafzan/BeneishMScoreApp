@@ -144,7 +144,7 @@ class EnhancedXBRL(XBRL):
         :param col_name: str
         :return: DataFrame
         """
-        df[col_name] = df.filter(like=col_name).bfill(axis=1).iloc[:, 0]
+        df[col_name] = df.copy().filter(like=col_name).bfill(axis=1).values[:, 0]
         df = df.loc[:, ~df.columns.duplicated()]
         return df
 
