@@ -16,7 +16,7 @@ def on_ticker_change():
             filing = company.get_filings(form=['10-Q']).latest()
             xbrl = XBRL.from_filing(filing)
             df = xbrl.statements.income_statement(skip_concept_check=False).to_dataframe(standard=False)
-            st.write(company.display_name)
+            st.write(company.latest_tenq)
             st.dataframe(df)
         else:
             st.warning('No 10-Q available')
