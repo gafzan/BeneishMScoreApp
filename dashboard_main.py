@@ -82,7 +82,7 @@ CURRENT_YEAR_COL_NAME = 'Current year'
 
 WINSORIZE_VALUES = {
     'DSRI': (0.27, 3.12),
-    'GMI': (0.49, 4.880),
+    'GMI': (0.108, 4.880),
     'AQI': (0.1, 4.09),
     'SGI': (0.49, 4.88),
     'DEPI': (0.36, 2.65),
