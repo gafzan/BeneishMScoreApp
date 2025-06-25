@@ -332,7 +332,7 @@ def clean_sec_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 def display_wiki():
     """Display information about M-Score"""
-    with st.expander("Wiki 📚"):
+    with st.expander("Information ℹ️"):
         st.subheader("Beneish M-Score")
         st.write(
             "The Beneish M-Score is a numerical formula that aims to identify companies that are engaging in earnings manipulation. "
@@ -443,7 +443,7 @@ def display_wiki():
 
 def user_guide():
     """Display a user guide on the sidebar"""
-    with st.expander("User Guide ❔", expanded=False):
+    with st.expander("User Guide", expanded=False):
         st.markdown("""
         ## How to Use This Tool
 
