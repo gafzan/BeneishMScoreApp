@@ -142,6 +142,6 @@ FINANCIAL_STATEMENTS_CONFIG = {
         filter_config=NET_INCOME_FILTER,
         filter_by_total=False,
         long_name='Net Income',
-        instant=True
+        instant=False
     ),
 }
