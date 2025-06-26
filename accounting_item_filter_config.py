@@ -164,10 +164,12 @@ TOTAL_ASSETS_FILTER = AccountingItemFilterConfig(
 PROPERTY_PLANT_EQUIPMENT_FILTER = AccountingItemFilterConfig(
     partial_concepts=[
         ('property', 'plant', 'equipment'),
+        ('property', 'equipment'),
         ('right', 'use', 'asset')
     ],
     partial_labels=[
         ('property', 'plant', 'equipment'),
+        ('property', 'equipment'),
         ('right', 'use', 'asset')
     ],
     partial_exclusions=['liabilit', 'current']
