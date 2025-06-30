@@ -224,6 +224,7 @@ PROPERTY_PLANT_EQUIPMENT_FILTER = AccountingItemFilterConfig(
 # Long Term Debt
 LONG_TERM_DEBT_FILTER = AccountingItemFilterConfig(
     exact_concepts=['LongTermDebtAndCapitalLeaseObligations', 'LongTermDebtAndFinanceLeasesNoncurrent'],
+    exact_labels=['term debt'],
     partial_concepts=[
         ('long', 'term', 'debt'),
         ('long', 'term', 'borrowing'),
