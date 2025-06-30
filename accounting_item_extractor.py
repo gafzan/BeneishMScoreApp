@@ -336,33 +336,6 @@ class AccountingItemExtractor:
             self._df = None
 
 
-def main():
-    df = pd.DataFrame({
-        'label': [
-            'Net Income Shareholders',
-            'Net Income Preferred Stock',
-            'Total Revenue',
-            'Common Stock Equity'
-        ],
-        'concept': [
-            'us-gaap_NetIncomeLoss',
-            'us-gaap_NetIncomeLossPreferredStock',
-            'us-gaap_RevenueFromContractWithCustomer',
-            'us-gaap_CommonStockValue'
-        ],
-        'value': [50, 30, 100, 75],
-        'is_total': [False, False, False, False]
-    })
-
-    from accounting_item_filter_config import NET_INCOME_FILTER
-    extractor = AccountingItemExtractor(df=df)
-
-    data = extractor.extract_accounting_items(filter_config=NET_INCOME_FILTER.to_dict())
-    print(data)
-
-
-if __name__ == '__main__':
-    main()
 
 
 
